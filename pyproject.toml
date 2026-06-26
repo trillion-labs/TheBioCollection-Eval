@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "thebiocollection-eval"
+version = "0.1.0"
+description = "Evaluation utilities for TheBioCollection-Eval."
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "datasets==4.5.0",
+  "esm @ git+https://github.com/Biohub/esm.git@c94ed8d763bbd7088b296949e5b401e8ea12073a",
+  "huggingface_hub==0.36.2",
+  "numpy==2.2.6",
+  "rdkit==2025.9.5",
+  "safetensors==0.7.0",
+  "tokenizers==0.22.2",
+  "torch==2.7.1",
+  "transformers @ git+https://github.com/Biohub/transformers.git@3a8956fb4d4ea16b0ec8e71deef2c2909b6a5cbf",
+  "biopython==1.86",
+  "biotite==1.6.0",
+  "einops==0.8.2",
+]
+
+[project.scripts]
+thebiocollection-eval = "thebiocollection_eval.eval.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
