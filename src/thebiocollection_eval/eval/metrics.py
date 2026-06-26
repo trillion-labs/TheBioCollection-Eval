@@ -635,18 +635,14 @@ def binder_generation_metrics(
     if deep_metric_scorer is None:
         raise RuntimeError("binder_generation requires deep protein metrics.")
     valid = 0
-    lengths = []
     degeneracy = ProteinDegeneracyAccumulator()
     for record, prediction in pairs:
         seq = extract_protein_sequence(prediction)
         if seq and set(seq) <= VALID_AA:
             valid += 1
-            lengths.append(len(seq))
             degeneracy.add(seq)
     return {
-        "valid_predictions": valid,
         "validity": _safe_div(valid, len(pairs)),
-        "mean_generated_length": mean(lengths) if lengths else None,
         **degeneracy.metrics(total=len(pairs)),
         **deep_metric_scorer.score_binder_generation(pairs),
     }
@@ -758,4 +754,3 @@ def longest_homopolymer_run(sequence: str) -> int:
 
 def _safe_div(num: float, denom: float) -> float:
     return float(num / denom) if denom else 0.0
-
