@@ -7,7 +7,7 @@ numpy==2.2.6
 rdkit==2025.9.5
 safetensors==0.7.0
 tokenizers==0.22.2
-torch==2.7.1+cu128
+torch==2.13.0
 transformers @ git+https://github.com/Biohub/transformers.git@3a8956fb4d4ea16b0ec8e71deef2c2909b6a5cbf
 
 # Pulled from the vpd/bmfm runtime because Biohub ESMFold2-Fast imports these at runtime.
