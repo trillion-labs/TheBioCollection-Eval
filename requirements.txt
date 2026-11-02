@@ -1,6 +1,6 @@
 --extra-index-url https://download.pytorch.org/whl/cu128
 
-datasets==4.5.0
+datasets==5.0.1
 esm @ git+https://github.com/Biohub/esm.git@c94ed8d763bbd7088b296949e5b401e8ea12073a
 huggingface_hub==0.36.2
 numpy==2.2.6
